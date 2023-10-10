@@ -1,14 +1,15 @@
 from pymongo import MongoClient
+from databaseConfig import database_username,database_password,databasename
 
 
 
 def dbconnect():
         #mongodb connection string
-        connection_string = "mongodb+srv://kalaiyarasan:kjqYYemV2V0R5RE6@cluster0.7g1bffo.mongodb.net/?retryWrites=true&w=majority&appName=AtlasApp"
+        connection_string = f"mongodb+srv://{database_username}:{database_password}@cluster0.7g1bffo.mongodb.net/?retryWrites=true&w=majority&appName=AtlasApp"
 
         # Create a MongoDB client
         client = MongoClient(connection_string)
-        db = client["Crud_2023"]
+        db = client[databasename]
         return db
 
 
